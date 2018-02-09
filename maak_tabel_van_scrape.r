@@ -1,6 +1,4 @@
-source('scrape.R')
-
-scrape = scrape()
+maak_tabel = function(scrape){
 
 #ga na welke kolomen we hebben
 kolommen = c()
@@ -15,7 +13,7 @@ for(i in 1:length(scrape)){
 
 kolommen = unique(kolommen)
 
-kolommen = c( 'naam', kolommen, 'project_link', 'kennisveld_link' )
+kolommen = c( 'naam', kolommen, 'link' )
 
 #maak de tabel
 tabel = as.data.frame( matrix(NA, nrow = length(scrape), ncol = length(kolommen)) )
@@ -48,3 +46,5 @@ tabel$naam =  unlist( lapply( tabel$link, function(x){
 
 write.csv(tabel, file = 'db/tabel.csv')
 
+return(tabel)
+}

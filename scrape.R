@@ -30,7 +30,7 @@ for(i  in 1:length(alle_paginas)){
   pagina = strsplit(pagina, '\n')[[1]][2]
 
   pagina = strsplit(pagina, '\\.')[[1]]
-  
+ 
   tags_per_pagina[[i]] = pagina
     
   }else{
